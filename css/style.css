@@ -1,0 +1,218 @@
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
+i{
+    opacity: 0.3;
+}
+
+aside{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/** PROFIL **/
+.profil{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #EAEAEA;
+    padding: 10px;
+}
+.profil .info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+.profil .info img{
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    border-radius: 50px;
+}
+.profil .options{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+/** ALERT NOTIFICATION **/
+.alert_notification{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background-color:#8EDAFC;
+    padding: 15px;
+}
+.alert_notification .icon{
+    border-radius: 20px;
+    background-color: white;
+    padding: 15px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alert_notification .icon i{
+    color: #8EDAFC;
+    opacity: 1;
+}
+
+.alert_notification .message_alert{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: max-content;
+}
+
+.alert_notification .message_alert button{
+    font-size: 13px;
+    text-decoration: underline;
+    padding: 0;
+}
+
+/** SEARCH BAR **/
+.search{
+    background: #E9EBEB;
+    padding: 10px 10px;
+}
+.search .search_input{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    padding: 5px 20px;
+}
+.search .search_input input{
+    flex-grow: 1;
+    border: none;
+}
+
+
+/** CONVERSATIONS **/
+.conversations{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: 0px;
+    margin-bottom: 0;
+}
+.conversations .conversation{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 10px 10px;
+    gap: 10px;
+}
+.conversations .conversation:hover{
+    cursor: pointer;
+}
+.conversations .conversation.active{
+    background-color: #E9EBEB;
+}
+.conversations .conversation .info{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.conversations .conversation .info span{
+    font-size: 13px;
+    color: #CECCCC;
+}
+.conversations .conversation img{
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    border-radius: 50px;
+}
+.conversations .conversation .hour{
+    font-size: 12px;
+    color: #CECCCC;
+}
+
+/** CURRENT CONVERSATION **/
+.current_conversation{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/** CURRENT CONVERSATION - INFOS **/
+.current_conversation .informations{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EAEAEA;
+    padding: 10px;
+    border-left: 1px solid #B1B1B1;
+    gap: 10px;
+}
+.current_conversation .informations img{
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    border-radius: 50px;
+}
+.current_conversation .informations .receiver{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.current_conversation .informations .receiver span{
+    font-size: 12px;
+    line-height: 13px;
+}
+/** CURRENT CONVERSATION - HISTORY **/
+.current_conversation .messages{
+    flex-grow: 1;
+    padding: 30px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    background: url('../img/mine.jpg');
+    overflow-y: scroll;
+}
+.current_conversation .messages .message{
+    width: 40%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.current_conversation .messages .message.received_message{
+    background-color: white;
+    align-self: flex-start;
+}
+.current_conversation .messages .message.sent_message{
+    background-color: #D5F8BA;
+    align-self: flex-end;
+}
+.current_conversation .messages .message .hour{
+    align-self: flex-end;
+    font-size: 12px;
+}
+/** CURRENT CONVERSATION - SEND MESSAGE **/
+.current_conversation .send_message{
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    background-color: #F3EEEA;
+}
+.current_conversation .send_message input{
+    flex-grow: 1;
+    background-color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 10px; 
+}
