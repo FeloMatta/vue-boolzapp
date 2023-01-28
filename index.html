@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/style.css">
         
     </head>
-    <body class="container-fluid">
+    <body class="container-fluid" id="app">
         <div class="row">
             <aside class="col-4 px-0">
                 <div class="profil">
@@ -38,94 +38,15 @@
                     </div>
                 </div>
                 <ul class="conversations">
-                    <li class="conversation active">
-                        <img src="img/avatar_1.jpg" alt="">
+                    <li class="conversation" v-for="(contact, index) in contacts"
+                        :class="{
+                            'active': (currentContact == index)
+                        }"
+                        @click="showConversation(index)">
+                        <img v-bind:src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+    
                         <div class="info">
-                            Michele
-                            <span>
-                                Ultimo messaggio inviato
-                            </span>
-                        </div>
-                        <div class="hour">
-                            12:00
-                        </div>
-                    </li>
-                    <li class="conversation">
-                        <img src="img/avatar_2.jpg" alt="">
-                        <div class="info">
-                            Fabio
-                            <span>
-                                Ultimo messaggio inviato
-                            </span>
-                        </div>
-                        <div class="hour">
-                            12:00
-                        </div>
-                    </li>
-                    <li class="conversation">
-                        <img src="img/avatar_3.jpg" alt="">
-                        <div class="info">
-                            Samuele
-                            <span>
-                                Ultimo messaggio inviato
-                            </span>
-                        </div>
-                        <div class="hour">
-                            12:00
-                        </div>
-                    </li>
-                    <li class="conversation">
-                        <img src="img/avatar_4.jpg" alt="">
-                        <div class="info">
-                            Alessandro B.
-                            <span>
-                                Ultimo messaggio inviato
-                            </span>
-                        </div>
-                        <div class="hour">
-                            12:00
-                        </div>
-                    </li>
-                    <li class="conversation">
-                        <img src="img/avatar_5.jpg" alt="">
-                        <div class="info">
-                            Alessandro L.
-                            <span>
-                                Ultimo messaggio inviato
-                            </span>
-                        </div>
-                        <div class="hour">
-                            12:00
-                        </div>
-                    </li>
-                    <li class="conversation">
-                        <img src="img/avatar_6.jpg" alt="">
-                        <div class="info">
-                            Claudia
-                            <span>
-                                Ultimo messaggio inviato
-                            </span>
-                        </div>
-                        <div class="hour">
-                            12:00
-                        </div>
-                    </li>
-                    <li class="conversation">
-                        <img src="img/avatar_7.jpg" alt="">
-                        <div class="info">
-                            Federico
-                            <span>
-                                Ultimo messaggio inviato
-                            </span>
-                        </div>
-                        <div class="hour">
-                            12:00
-                        </div>
-                    </li>
-                    <li class="conversation">
-                        <img src="img/avatar_8.jpg" alt="">
-                        <div class="info">
-                            Davide
+                            {{contact.name}}
                             <span>
                                 Ultimo messaggio inviato
                             </span>
@@ -136,39 +57,36 @@
                     </li>
                 </ul>
             </aside>
-            <main class="col-8 px-0 current_conversation">
-                <div class="informations">
-                    <img src="img/avatar_1.jpg" alt="">
-                    <div class="receiver">
-                        Michele
-                        <span>
-                            Ultimo messaggio oggi alle 12:00
-                        </span>
+            <main class="col-8 px-0">
+                <div class="current_conversation" v-for="(contact, index) in contacts"
+                    :class="{
+                        'active': (currentContact == index)
+                    }">
+                    <div class="informations">
+                        <img v-bind:src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                        <div class="receiver">
+                            {{contact.name}}
+                            <span>
+                                Ultimo messaggio oggi alle 12:00
+                            </span>
+                        </div>
+                        <div class="options">
+                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button><i class="fa-solid fa-paperclip"></i></button>
+                            <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        </div>
                     </div>
-                    <div class="options">
-                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                        <button><i class="fa-solid fa-paperclip"></i></button>
-                        <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                    <div class="messages" >
+                        <div v-for="(message, index) in contact.messages" v-bind:class="'message ' + message.status">
+                            {{message.message}}
+                            <span class="hour">{{message.date}}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="messages">
-                    <div class="message sent_message">
-                        Hai portato a spasso il cane ?
-                        <span class="hour">15:30</span>
+                    <div class="send_message">
+                        <button><i class="fa-regular fa-face-smile"></i></button>
+                        <input type="text" placeholder="Scrivi un messagio">
+                        <button><i class="fa-solid fa-microphone"></i></button>
                     </div>
-                    <div class="message sent_message">
-                        Ricordati di stendere i panni
-                        <span class="hour">15:30</span>
-                    </div>
-                    <div class="message received_message">
-                        Tutto fatto !
-                        <span class="hour">16:15</span>
-                    </div>
-                </div>
-                <div class="send_message">
-                    <button><i class="fa-regular fa-face-smile"></i></button>
-                    <input type="text" placeholder="Scrivi un messagio">
-                    <button><i class="fa-solid fa-microphone"></i></button>
                 </div>
             </main>
         </div>

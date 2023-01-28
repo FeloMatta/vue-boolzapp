@@ -141,11 +141,13 @@ aside{
 
 /** CURRENT CONVERSATION **/
 .current_conversation{
-    display: flex;
+    display: none;
     flex-direction: column;
     height: 100vh;
 }
-
+.current_conversation.active{
+    display: flex;
+}
 /** CURRENT CONVERSATION - INFOS **/
 .current_conversation .informations{
     display: flex;
@@ -189,11 +191,11 @@ aside{
     display: flex;
     flex-direction: column;
 }
-.current_conversation .messages .message.received_message{
+.current_conversation .messages .message.received{
     background-color: white;
     align-self: flex-start;
 }
-.current_conversation .messages .message.sent_message{
+.current_conversation .messages .message.sent{
     background-color: #D5F8BA;
     align-self: flex-end;
 }
