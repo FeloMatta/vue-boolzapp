@@ -89,7 +89,8 @@ createApp({
                         }
                     ],
                 },
-            ]
+            ],
+            newMessageText: ''
         
         };
 
@@ -100,6 +101,32 @@ createApp({
         showConversation: function(index) {
             this.currentContact = index;
         },
+        sendMessage() {
+
+            const newMessageObject = {
+                date: '10/01/2020 16:15:22',
+                message: this.newMessageText,
+                status: 'sent'
+            };
+
+            this.contacts[this.currentContact].messages.push(newMessageObject);
+
+            this.newMessageText = '';
+
+            setTimeout(() => {
+                this.replyToMessage();
+            }, 1000)
+        },
+        replyToMessage(){
+
+            const newReplyObject = {
+                date: '10/01/2020 16:15:23',
+                message: "Ok!",
+                status: 'received'
+            };
+
+            this.contacts[this.currentContact].messages.push(newReplyObject);
+        }
 
     }
 }).mount('#app');
