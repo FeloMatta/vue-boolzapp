@@ -126,7 +126,23 @@ createApp({
             };
 
             this.contacts[this.currentContact].messages.push(newReplyObject);
-        }
+        },
+
+        nameSearch() {
+            for (i = 0; i < this.contacts.length; i++){
+
+                let position = this.contacts[i].name.toLowerCase();
+                let searchResult = position.search(this.userSearch);
+
+                if(searchResult != 0) {
+                    this.contacts[i].visible = false
+                }
+                else{
+                    this.contacts[i].visible = true
+                }
+            }
+            this.userSearch = '';
+        },
 
     }
 }).mount('#app');

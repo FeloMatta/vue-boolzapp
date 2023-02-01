@@ -108,16 +108,19 @@ aside{
     margin-bottom: 0;
 }
 .conversations .conversation{
-    display: flex;
     justify-content: space-between;
     padding: 10px 20px 10px 10px;
     gap: 10px;
+    display: none;
 }
 .conversations .conversation:hover{
     cursor: pointer;
 }
 .conversations .conversation.active{
     background-color: #E9EBEB;
+}
+.conversations .conversation.show{
+    display: flex;
 }
 .conversations .conversation .info{
     display: flex;

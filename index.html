@@ -34,13 +34,14 @@
                 <div class="search">
                     <div class="search_input">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="userSearch" @keyup.enter="nameSearch()">
                     </div>
                 </div>
                 <ul class="conversations">
                     <li class="conversation" v-for="(contact, index) in contacts"
                         :class="{
-                            'active': (currentContact == index)
+                            'active': (currentContact == index),
+                            'show': (contact.visible)
                         }"
                         @click="showConversation(index)">
                         <img v-bind:src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
